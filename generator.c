@@ -193,7 +193,7 @@ int generate(int op, int level)
 
 int main()
 {
-    output = fopen("output.txt", "w");
+    output = fopen("pwd/program.txt", "w");
     srand(time(0));
     generate(S, 0);
     return 0;
