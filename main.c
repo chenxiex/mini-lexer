@@ -49,7 +49,7 @@ int scanner(FILE *program, FILE *num, FILE *var, FILE *result)
 {
     char c;
     c = fgetc(program);
-    while (c != EOF)
+    while (c != '#')
     {
         while (c == ' ' || c == '\n' || c == '\t')
         {
@@ -223,7 +223,7 @@ int scanner(FILE *program, FILE *num, FILE *var, FILE *result)
                 return EXIT_FAILURE;
             }
         }
-        else if (c == EOF)
+        else if (c == '#')
         {
             break;
         }

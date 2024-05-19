@@ -196,5 +196,7 @@ int main()
     output = fopen("pwd/program.txt", "w");
     srand(time(0));
     generate(S, 0);
+    fprintf(output, "#");
+    fclose(output);
     return 0;
 }

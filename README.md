@@ -135,7 +135,7 @@ int scanner(FILE *program, FILE *num, FILE *var, FILE *result)
 {
     char c;
     c = fgetc(program);
-    while (c != EOF)
+    while (c != '#')
     {
         while (c == ' ' || c == '\n' || c == '\t')
         {
@@ -309,7 +309,7 @@ int scanner(FILE *program, FILE *num, FILE *var, FILE *result)
                 return EXIT_FAILURE;
             }
         }
-        else if (c == EOF)
+        else if (c == '#')
         {
             break;
         }
@@ -555,12 +555,14 @@ int main()
     output = fopen("pwd/program.txt", "w");
     srand(time(0));
     generate(S, 0);
+    fprintf(output, "#");
+    fclose(output);
     return 0;
 }
 ```
 该代码生成器可以生成一个随机的测试源代码。为了编写方便，该测试程序仅会使用单个字符的变量名。我手动修改了生成的测试代码，使其更加复杂。最终得到测试代码如下：
 ```
-IF{av+69+s}{c=69;q=83-z;}ELSE{IF{h+x}{e=b;z=79;};};e=n+h*74+x/58;
+IF{av+69+s}{c=69;q=83-z;}ELSE{IF{h+x}{e=b;z=79;};};e=n+h*74+x/58;#
 ```
 词法分析器产生的结果如下：
 单词串（经过手动换行处理）：
@@ -598,7 +600,7 @@ n,36
 ```
 当程序出错时，词法分析器会进行报错。例如，我在测试代码中加入非法字符：
 ```
-IF@{av+69+s}{c=69;q=83-z;}ELSE{IF{h+x}{e=b;z=79;};};e=n+h*74+x/58;
+IF@{av+69+s}{c=69;q=83-z;}ELSE{IF{h+x}{e=b;z=79;};};e=n+h*74+x/58;#
 ```
 程序报错：
 ```
