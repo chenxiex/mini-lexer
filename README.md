@@ -82,8 +82,7 @@ $$
 ![状态转换图](./assets/状态转换图.png)
 
 ## 第四部分 词法分析算法
-对于给定的文法，可以通过状态转换图得到词法分析算法。算法如下：
-(可在github上查看完整源代码[https://github.com/chenxiex/mini-lexer](https://github.com/chenxiex/mini-lexer))
+对于给定的文法，可以通过状态转换图得到词法分析算法。代码如下：
 ```C
 #include <stdio.h>
 #include <stdlib.h>
