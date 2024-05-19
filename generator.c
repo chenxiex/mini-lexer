@@ -10,9 +10,6 @@
 #define VAR 5
 #define A 6
 #define L 7
-#define B 8
-#define C 9
-#define D 10
 #define J 11
 #define N 12
 #define LEVEL 5
@@ -145,107 +142,22 @@ int generate(int op, int level)
     }
     case A: {
         generate(VAR, level + 1);
-        fprintf(output, ":");
+        fprintf(output, "=");
         generate(E, level + 1);
         break;
     }
     case L: {
-        int o;
-        if (level >= LEVEL)
-            o = 1;
-        else
-            o = rand() % 2;
+        int o = rand() % 2;
         switch (o)
         {
         case 0: {
-            generate(L, level + 1);
-            fprintf(output, "||");
-            generate(B, level + 1);
-            break;
-        }
-        case 1: {
-            generate(B, level + 1);
-            break;
-        }
-        }
-        break;
-    }
-    case B: {
-        int o;
-        if (level >= LEVEL)
-            o = 1;
-        else
-            o = rand() % 2;
-        switch (o)
-        {
-        case 0: {
-            generate(B, level + 1);
-            fprintf(output, "&");
-            generate(C, level + 1);
-            break;
-        }
-        case 1: {
-            generate(C, level + 1);
-            break;
-        }
-        }
-        break;
-    }
-    case C: {
-        int o;
-        if (level >= LEVEL)
-            o = 3;
-        else
-            o = rand() % 4;
-        switch (o)
-        {
-        case 0: {
-            generate(C, level + 1);
-            fprintf(output, ">");
-            generate(D, level + 1);
-            break;
-        }
-        case 1: {
-            generate(C, level + 1);
+            generate(E, level + 1);
             fprintf(output, "<");
-            generate(D, level + 1);
-            break;
-        }
-        case 2: {
-            generate(C, level + 1);
-            fprintf(output, "=");
-            generate(D, level + 1);
-            break;
-        }
-        case 3: {
-            generate(D, level + 1);
-            break;
-        }
-        }
-        break;
-    }
-    case D: {
-        int o;
-        if (level >= LEVEL)
-            o = 2;
-        else
-            o = rand() % 3;
-        switch (o)
-        {
-        case 0: {
-            fprintf(output, "!");
-            generate(D, level + 1);
-            break;
-        }
-        case 1: {
-            fprintf(output, "(");
-            generate(L, level + 1);
-            fprintf(output, ")");
-            break;
-        }
-        case 2: {
             generate(E, level + 1);
             break;
+        }
+        case 1: {
+            generate(E, level + 1);
         }
         }
         break;
