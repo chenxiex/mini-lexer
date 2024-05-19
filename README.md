@@ -5,6 +5,7 @@ $$ \Sigma=\{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,+,-,*,/,<,=,(,),
 
 ### 1.2 语言的文法
 定义语言的文法如下：
+
 $$
 G[S]=(V_N,V_T,P,S)\\
 V_N=\{S,E,T,F,A,L,B,C,D,J,INT,VAR\}\\
@@ -27,7 +28,9 @@ L\rightarrow E<E|E\\
 \# IF语句\\
 J\rightarrow IF\{L\}\{S\}|IF\{L\}\{S\}ELSE\{S\}\\
 $$
+
 在构建词法分析器时，暂不考虑运算优先级问题，可以适当对文法进行简化。简化后的文法如下，采用EBNF：
+
 $$
 P:\\
 S\rightarrow \{(A;|J;)\}\\
